@@ -1,5 +1,15 @@
 'use strict';
 
 module.exports = function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+   var array = collection.reduce((result, currentVal) => {
+     if(currentVal in result)
+        result[currentVal]++;
+      else
+        result[currentVal] = 1;
+      return result;
+   },{});
+
+   return Object.entries(array).map((item) => {
+     return {key:item[0], count:item[1]}
+    });
 }
